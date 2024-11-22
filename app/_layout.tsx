@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
-import { View } from "react-native";
-// import { StyleSheet, View } from "react-native";
+// import { ScrollView, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function RootLayout() {
   return (

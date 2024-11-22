@@ -1,10 +1,17 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { View, TouchableOpacity, StyleSheet, Text, Image } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  Image,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 
-const logo = require("../../assets/images/54319.jpg");
+const logo = require("../../assets/images/marketing-star.png");
 
 export default function TabLayout() {
   const [showMenu, SetShowMenu] = useState(false);
@@ -17,18 +24,28 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: "#ffd33d",
         headerStyle: {
-          backgroundColor: "#25292e",
+          backgroundColor: "white",
         },
         headerShadowVisible: false,
         headerTintColor: "#fff",
         tabBarStyle: {
           backgroundColor: "#25292e",
         },
-        headerTitle: () => <Image source={logo} style={{width: 100, height: 50, objectFit: "cover", borderRadius: 2}} />,
+        headerTitle: () => (
+          <Image
+            source={logo}
+            resizeMode="contain"
+            style={{
+              width: 200,
+              objectFit: "contain",
+              borderRadius: 2,
+            }}
+          />
+        ),
         headerRight: () => (
           <View style={{ marginRight: 10 }}>
             <TouchableOpacity onPress={handleClicks}>
-              <Ionicons name="menu" size={30} color="#fff" />
+              <Ionicons name="menu" size={30} color="black" />
             </TouchableOpacity>
             {showMenu && (
               <View style={styles.dropdown}>
@@ -47,47 +64,47 @@ export default function TabLayout() {
         ),
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "home-sharp" : "home-outline"}
-              color={color}
-              size={24}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="about"
-        options={{
-          title: "About",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={
-                focused ? "information-circle" : "information-circle-outline"
-              }
-              color={color}
-              size={24}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="contact"
-        options={{
-          title: "contact",
-          tabBarIcon: ({ color, focused }) => (
-            <MaterialCommunityIcons
-              name={focused ? "contacts" : "contacts-outline"}
-              size={24}
-              color={color}
-            />
-          ),
-        }}
-      />
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "Home",
+            tabBarIcon: ({ color, focused }) => (
+              <Ionicons
+                name={focused ? "home-sharp" : "home-outline"}
+                color={color}
+                size={24}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="about"
+          options={{
+            title: "About",
+            tabBarIcon: ({ color, focused }) => (
+              <Ionicons
+                name={
+                  focused ? "information-circle" : "information-circle-outline"
+                }
+                color={color}
+                size={24}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="contact"
+          options={{
+            title: "contact",
+            tabBarIcon: ({ color, focused }) => (
+              <MaterialCommunityIcons
+                name={focused ? "contacts" : "contacts-outline"}
+                size={24}
+                color={color}
+              />
+            ),
+          }}
+        />
     </Tabs>
   );
 }
