@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+import { View } from "react-native";
 // import { StyleSheet, View } from "react-native";
 
 export default function RootLayout() {
@@ -6,8 +7,8 @@ export default function RootLayout() {
     // <View style={style.layoutStyle}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="index" options={{ title: "Home" }} />
-        <Stack.Screen name="about" options={{ title: "About" }} />
+        {/* <Stack.Screen name="index" options={{ title: "Home" }} /> */}
+        {/* <Stack.Screen name="about" options={{ title: "About" }} /> */}
       </Stack>
     // </View>
   );
