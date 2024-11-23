@@ -1,4 +1,4 @@
-import Services from "@/app-example/components/services/Services";
+import Services from "@/app/components/services/Services";
 import React from "react";
 import {
   View,
